@@ -4,6 +4,9 @@ function getInitials(nomeCompleto) {
 }
 
 function createSlug(stringa) {
+  if (!stringa) {
+    throw new Error("Il titolo non è valido!");
+  }
   return stringa.trim().toLowerCase().replaceAll(" ", "-");
 }
 
@@ -18,4 +21,14 @@ function isPalindrome(stringa) {
   return stringa === inverso;
 }
 
-module.exports = { getInitials, createSlug, average, isPalindrome };
+function findPostById(array, id) {
+  return array.find((p) => p.id === id);
+}
+
+module.exports = {
+  getInitials,
+  createSlug,
+  average,
+  isPalindrome,
+  findPostById,
+};
