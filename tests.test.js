@@ -48,4 +48,9 @@ test('La funzione "findPostById" restituisce il post corretto dato l’array di 
     title: "Ricetta pizza",
     slug: "ricetta-pizza",
   });
+  expect(findPostById(posts, 3)).toBe(null);
+  expect(() => findPostById(posts, "ciao")).toThrow("ciao non è un id");
+  expect(() => findPostById([12, 45], 2)).toThrow(
+    "l'array non ha un formato corretto"
+  );
 });

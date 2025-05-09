@@ -22,7 +22,15 @@ function isPalindrome(stringa) {
 }
 
 function findPostById(array, id) {
-  return array.find((p) => p.id === id);
+  if (isNaN(id)) {
+    throw new Error(id + " non è un id");
+  }
+  array.forEach((p) => {
+    if (p.id === undefined || p.title === undefined || p.slug === undefined) {
+      throw new Error("l'array non ha un formato corretto");
+    }
+  });
+  return array.find((p) => p.id === id) || null;
 }
 
 module.exports = {
